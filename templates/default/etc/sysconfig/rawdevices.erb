@@ -1,0 +1,4 @@
+# Raw device mappings - set by chef recipe
+<% @devices.each_with_index do |dev, i| -%>
+/dev/raw/raw<%= i + 1 %> /dev/<%= dev %>1
+<% end -%>

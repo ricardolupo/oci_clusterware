@@ -1,0 +1,6 @@
+# Raw device configured by chef oci_oracledb cookbook
+<% @devices.each_with_index do |dev, i| -%>
+ACTION=="add", KERNEL=="<%= dev %>1", RUN+="/bin/raw /dev/raw/raw<%= i + 1 %> %N"
+<% end -%>
+# Set Permissions
+ACTION=="add", KERNEL=="raw*", OWNER="<%= @user %>", GROUP="<%= @group %>", MODE="0660"
